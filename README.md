@@ -14,7 +14,7 @@ Preprint: [https://arxiv.org/abs/2503.11375](https://arxiv.org/abs/2503.11375)
 
 ## Data
 
-* **Source:** Dube (2019), *Minimum Wages and the Distribution of Family Incomes* (see AEA website linked from the paper).
+* **Source:** Dube (2019), *Minimum Wages and the Distribution of Family Incomes* (see [AEA website](https://www.aeaweb.org/articles?id=10.1257/app.20170085)).
 * **Input:** `march_regready_1996.dta`
 * **Output:** `Alaska_MW.csv` (cleaned dataset used by `empirical.py`)
 
