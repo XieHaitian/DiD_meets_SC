@@ -13,10 +13,6 @@ from multiprocessing import Pool, cpu_count
 # Place the data reading and pre-precessing inside main() so that 
 # the child processes do not have to perform any of these. 
 
-# change the following education level and number of childrens to obtain effect estimates for different subpopulation
-ed = 0
-nc = 0
-
 L = 2
 B = 500
 
