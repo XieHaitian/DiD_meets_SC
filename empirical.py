@@ -20,8 +20,6 @@ nc = 0
 L = 2
 B = 500
 
-h_Y = 4.86511
-h_G = 5.47
 
 seeds = 123
 
@@ -67,11 +65,11 @@ def project_to_simplex(w):
 def bootstrap_iteration(b,
                         y_array, t_array, g_array, x_array, W_boot, folds,
                         groups, times, X_quantiles,
-                        pre_T, N_G, G1, lambda_T, lambda_T_1, age_unique):
-    if b % 50 == 0:
-        print(f"In iteration: {b}")
+                        pre_T, N_G, G1, lambda_T, lambda_T_1, age_unique,
+                        h_Y, h_G):
+    #if b % 50 == 0:
+      #  print(f"In iteration: {b}")
     
-
     W_boot = W_boot.reshape(-1, 1)
     pi1 = float((W_boot.ravel() * G1.ravel()).sum() / G1.size)
     arry = np.hstack([y_array, t_array, g_array, x_array, W_boot])
@@ -203,7 +201,7 @@ def bootstrap_iteration(b,
     return np.mean(fold_scores)
 
 
-def main():
+def main(ed,nc):
     # === Load data ===
     data_file = 'Alaska_MW.csv'
     data_full = pd.read_csv(data_file)
@@ -230,6 +228,9 @@ def main():
     lambda_T_1 = (data[tvar] == times[-2]).mean()
 
     n = data.shape[0]
+    
+    h_Y = 6.25 * n ** (1/5 -1/2)
+    h_G = 12.94 * n ** (1/5 -1/2)
 
     y_array = data[yvar].to_numpy().reshape(-1, 1)
     t_array = data[tvar].to_numpy().reshape(-1, 1)
@@ -249,7 +250,7 @@ def main():
         (b,
          y_array, t_array, g_array, x_array, bootstrap_matrix[:, b],
          folds, groups, times, X_quantiles,
-         pre_T, N_G, G1, lambda_T, lambda_T_1, age_unique)
+         pre_T, N_G, G1, lambda_T, lambda_T_1, age_unique, h_Y, h_G)
         for b in range(B + 1)
     ]
 
@@ -272,14 +273,22 @@ def main():
     boots = np.asarray(bootstrap_values[1:], dtype=float)   # exclude the first
     boots = boots[np.isfinite(boots)]                       # drop NaNs if any
 
-    q = np.quantile(np.abs(boots - theta_hat), 1 - alpha)   # |θ*−θ̂|_{1−α}
-    ci_lower = theta_hat - q
-    ci_upper = theta_hat + q
+    # Bias-corrected percentile CI
+    boot_bias = float(np.mean(boots) - theta_hat)           # bootstrap bias
+    theta_hat_bc = theta_hat - boot_bias                    # bias-corrected point estimate
+    q_lo_bc, q_hi_bc = np.quantile(boots - boot_bias, [alpha/2, 1 - alpha/2])
 
-    print(f"theta_hat = {theta_hat:.3f}")
-    print(f"{int((1-alpha)*100)}% CI: [{ci_lower:.3f}, {ci_upper:.3f}]")
+    print(f"theta_hat = {theta_hat:.3f} (bias-corrected: {theta_hat_bc:.3f})")
+    print(f"{int((1-alpha)*100)}% bias-corrected percentile CI: [{q_lo_bc:.3f}, {q_hi_bc:.3f}]")
     
 
 
 if __name__ == '__main__':
-    main()
+    import argparse
+
+    parser = argparse.ArgumentParser(description='Bootstrap estimator with (ed, nc) filtering.')
+    parser.add_argument('--ed', type=int, default=0, help='education level (int), default 0')
+    parser.add_argument('--nc', type=int, default=0, help='number of children (int), default 0')
+    args = parser.parse_args()
+
+    main(args.ed, args.nc)
