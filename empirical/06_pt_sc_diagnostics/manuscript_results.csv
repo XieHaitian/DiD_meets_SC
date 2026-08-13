@@ -1,0 +1,3 @@
+assumption,diagnostic,tests,holm_rejections_5pct,subgroups,bootstrap_draws
+PT,donor-specific adjacent-pretrend tests with Holm adjustment within subgroup,144,1,9,500
+SC,1998-2001 conditional fit predicting 2002; joint age-region tests with Holm adjustment across subgroups,9,0,9,500

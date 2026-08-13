@@ -1,0 +1,10 @@
+item,value
+operating_system,macOS-15.5-arm64-arm-64bit-Mach-O
+processor_model,Apple M4
+installed_memory_gib,32.0
+python_version,3.13.5
+numpy_version,2.2.6
+scipy_version,1.16.0
+pandas_version,2.3.1
+numba_version,0.61.2
+statsmodels_version,0.14.5

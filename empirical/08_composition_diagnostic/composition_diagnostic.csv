@@ -1,0 +1,2 @@
+diagnostic,state_fips,formula,observations,log_likelihood,null_log_likelihood,mcfadden_pseudo_r2,converged
+multinomial logit of survey year on state and covariates for Alaska and the four main donors,2|24|33|49|51,year ~ C(state_fips) + age + C(educ) + C(nchild),23415,-40175.836887968,-40548.248961785604,0.009184418152522023,True

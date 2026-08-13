@@ -1,0 +1,2 @@
+configuration,donor_states,donors,condition_definition,quantile,quantile_method,kappa_m_p95,finite_evaluations,rank_deficient_evaluations,kappa_m_median,kappa_m_min,kappa_m_max
+quantile_top4_main,51|33|24|49,"Virginia, New Hampshire, Maryland, Utah",kappa(M)=sigma_max(M)/sigma_min(M),0.95,inverted_cdf,13.070487184660164,3494,0,4.430730708506316,1.1916489025098829,52.967226180891664

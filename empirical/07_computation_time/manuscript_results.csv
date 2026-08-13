@@ -1,0 +1,3 @@
+quantity,seconds,subgroups,bootstrap_draws_per_subgroup,worker_processes
+median point-estimation time per subgroup,0.2152953329496085,9,0,1
+all nine subgroups with multiplier bootstrap,224.1518959170207,9,500,8
