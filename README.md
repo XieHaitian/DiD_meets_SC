@@ -68,7 +68,7 @@ DiD_meets_SC/
 | `empirical/05_donor_sensitivity/` | Donor-pool sensitivity analysis in Appendix Table D.2 |
 | `empirical/06_pt_sc_diagnostics/` | PT and SC diagnostic results reported in Appendix D.3 |
 | `empirical/07_computation_time/` | Computation-time results reported in Section 6 |
-| `empirical/08_composition_diagnostic/` | Repeated-cross-section composition diagnostic reported in Section 6 |
+| `empirical/08_composition_diagnostic/` | Composition diagnostic for Assumption TI reported in Section 6 |
 
 #### Simulation analysis
 
