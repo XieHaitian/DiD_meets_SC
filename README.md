@@ -65,7 +65,7 @@ DiD_meets_SC/
 | `empirical/02_drdid_distributional_sc/` | DRDiD and distributional SC comparisons in Table 1 |
 | `empirical/03_condition_number/` | Empirical condition number reported in Section 6 |
 | `empirical/04_bandwidth_sensitivity/` | Bandwidth sensitivity analysis in Appendix Table D.1 |
-| `empirical/05_donor_sensitivity/` | Donor-pool sensitivity analysis in Appendix Table D.2 |
+| `empirical/05_donor_sensitivity/` | Donor pool sensitivity analysis in Appendix Table D.2 |
 | `empirical/06_pt_sc_diagnostics/` | PT and SC diagnostic results reported in Appendix D.3 |
 | `empirical/07_computation_time/` | Computation-time results reported in Section 6 |
 | `empirical/08_composition_diagnostic/` | Composition diagnostic for Assumption TI reported in Section 6 |
@@ -75,9 +75,9 @@ DiD_meets_SC/
 | Directory | Corresponding manuscript result |
 |---|---|
 | `simulation/01_bandwidth/` | Bandwidth experiments in Table 2 |
-| `simulation/02_condition_number/` | Condition-number experiments in Table 3 |
+| `simulation/02_condition_number/` | Condition number experiments in Table 3 |
 | `simulation/03_local_misspecification/` | Locally misspecified experiments in Table 4 |
-| `simulation/04_analytic_ci/` | Analytic-CI experiments in Table 5 |
+| `simulation/04_analytic_ci/` | Analytic confidence intervals in Table 5 |
 | `simulation/05_drdid_comparison/` | Comparison with DRDiD in Table 6 |
 | `simulation/06_aggregate_sc_comparison/` | Comparison with aggregate SC and SDiD in Table 7 |
 
