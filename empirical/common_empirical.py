@@ -36,7 +36,7 @@ HERE = Path(__file__).resolve().parent
 DATA_PATH = HERE / "Alaska_MW.csv"
 EXPECTED_DATA_SHA256 = "78cd29c90c2ac88e6b0f8fa77d3d3c9d955c3583964e4bd84aaf319ed2e0affe"
 
-CODE_VERSION = "empirical_q4_suite_v1"
+CODE_VERSION = "empirical_q4_suite_v2"
 FOLD_COUNT = 2
 FOLD_SEED = 123
 RIDGE_LLR = 1.0e-6
@@ -379,8 +379,11 @@ def didsc_estimate(prep: dict[str, object], observation_weights: np.ndarray) -> 
     g1 = np.asarray(prep["g1"])
     n_donors = int(prep["n_donors"])
     pre_t = int(prep["pre_t"])
-    lambda_t = float(prep["lambda_t"])
-    lambda_t_1 = float(prep["lambda_t_1"])
+    w_all = weights.ravel()
+    t_all = t_array.ravel()
+    weight_total = w_all.sum()
+    lambda_t = float((w_all * (t_all == times[-1])).sum() / weight_total)
+    lambda_t_1 = float((w_all * (t_all == times[-2])).sum() / weight_total)
     h_y = float(prep["h_y"])
     h_g = float(prep["h_g"])
 
