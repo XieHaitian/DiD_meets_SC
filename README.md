@@ -24,7 +24,7 @@ Preprint: [https://arxiv.org/abs/2503.11375](https://arxiv.org/abs/2503.11375)
 The cleaning program selects Alaska and six potential control states, retains the 1998--2003 CPS repeated cross sections used in the application, constructs the household-level variables, and normalizes age to 1998. The cleaned dataset is included in this repository. To regenerate it, download `march_regready_1996.dta`, place it in the `empirical` directory, and run `Rscript data_cleaning.R` from that directory.
 
 The main empirical specification uses Alaska as the treated state and Virginia, New Hampshire, Maryland, and Utah as the four donors. The two additional states in the cleaned data, Michigan and Ohio, are used in donor-pool sensitivity analyses.
-The DiD--SC multiplier bootstrap normalizes repeated-cross-section time shares by the total multiplier weight, \(\sum_i W_i\).
+The DiD--SC multiplier bootstrap normalizes repeated-cross-section time shares by the total multiplier weight, $\sum_i W_i$.
 
 The R data-cleaning program requires `dplyr`, `data.table`, and `haven`. The empirical and simulation programs were developed with Python 3.13 and require NumPy, pandas, Numba, and statsmodels.
 
