@@ -10,7 +10,7 @@ Preprint: [https://arxiv.org/abs/2503.11375](https://arxiv.org/abs/2503.11375)
 
 * `empirical/` contains the data-cleaning script, cleaned CPS data, shared estimation routines, empirical analysis programs, and CSV results reported in the manuscript.
 * `simulation/` contains the Monte Carlo programs and corresponding manuscript results.
-* Each numbered task directory contains only the Python code required for that exercise and its relevant CSV results.
+* Each numbered task directory contains the Python code required for that exercise and its relevant CSV results.
 
 ---
 
